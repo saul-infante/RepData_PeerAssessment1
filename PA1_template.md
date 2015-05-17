@@ -76,7 +76,7 @@ avg_step_interval[avg_step_interval$average==max(avg_step_interval$average),1]
 ## [1] 835
 ```
 
-## Imputing missing values
+## Inputing missing values
 
 Calculate number of missing values on the data set
 
@@ -206,6 +206,6 @@ g + geom_line() + facet_grid(DayType ~ .)
 ![](PA1_template_files/figure-html/unnamed-chunk-12-1.png) 
 
 
-### Conclusion
+### Conclusion for comparison between weekdays and weekends
 
 **It becomes apparent from the plot above that the average activity for this individual was higher during the weekdays that during weekdends**
