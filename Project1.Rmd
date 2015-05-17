@@ -1,0 +1,41 @@
+---
+title: "Class Project 1"
+output:
+  html_document:
+    keep_md: yes
+keep_md: yes
+self_contained: false
+---
+
+This is the first project of the class Reproducible Research. The goal of this project is to makes use of data from a personal activity monitoring device. This device collects data at 5 minute intervals through out the day. The data consists of two months of data from an anonymous individual collected during the months of October and November, 2012 and include the number of steps taken in 5 minute intervals each day
+
+The first step is to load the packages required during the completion of this exercise
+
+```{r}
+library(plyr)
+library(ggplot2)
+```
+
+## Loading and preprocessing the data
+Now we will load the data from the personal activity monitoring device from a csv file
+
+```{r, echo=TRUE}
+activity<-read.csv("activity.csv")
+```
+
+## What is mean total number of steps taken per day?
+Then we will calculate the total of steps for each day and create and histogram of it.
+
+```{r, echo=TRUE}
+steps_day<-ddply(activity, c("date"), summarise, tot = sum(steps))
+hist(steps_day$tot)
+```
+
+Now we will calculate and report the mean and median of the total number of steps taken per day.  
+*Note for this part of the assignment we are removing any NA values*
+
+```{r, echo=TRUE}
+mean(steps_day$tot, na.rm=TRUE)
+median(steps_day$tot, na.rm=TRUE)
+```
+
